@@ -78,4 +78,7 @@ const account = {
 //  console.log("Choice: " + choice);
 
     
+// du kan ha en separat "account object" och e separat "menu function", när funktionen är skapad måste du call for it.
+// mha functionen kan du sen hämta properties(values) från objectet (accountObject.______) och sedan få funktionen att köra olika kod 
+// beroende på vad som är input.    
  
