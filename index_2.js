@@ -33,7 +33,8 @@ something that is not valid.
 // ========= OBJECT ============
 const account = {
     name: "Maria",
-    expenses: [],
+    expenseWhat: [],
+    expenceHowMuch: [],
     income: [],
 
     addExpences: function () {
@@ -66,8 +67,9 @@ function menu() {
         prompt("Add your monthly income after tax:");
 // Need to store this in a variable to be able to reuse it in a calculation later.
         } else if (menuChoice === "2") {
-            prompt("What was your expense? (food, rent, etc)\n");
-            prompt("How much was this expence on XX?");
+            account.expenceWhat(prompt("What was your expense? (food, rent, etc)\n"));
+            account.expenceHowMuch(prompt("How much was this expence on XX?"));
+        
 // Need to store both these values in different variable to be able to reuse it in an alert "List of all expences" - a list of two columns.
 // Can I use the for Loop here somehow?
         } else if (menuChoice === "3") {
