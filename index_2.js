@@ -127,7 +127,8 @@ const accountObject = {
       // Could I do that by adding expenses (what and how much) to two separet arrays and then for-loop them into a two column list??
     },
 
-
+// ======= KIKA HÄR!!! ========= 
+// HUR RÄKNAR JAG IHOP?
     getSummary: function () {
       // träna på att skriva en liten plan på vilka steg du tror att du behöver göra i funktionen
       // I getSummary vill jag göra en kalkylering/addering: getSummary = Alla incomeAmount - alla expensesAmout
@@ -138,13 +139,23 @@ const accountObject = {
         // 1. skapa en variabel som adderar alla incomes (sumIncomes) 
         //this.sumIncomes.forEach(function (inAmount) {
         // 2. skapa en variabel som adderar/holds alla expenses (semExpenses)
-        let sumIncomes = (this.incomes.length);
-        let sumExpenses = (this.expenses.length);
+        //--- let sumIncomes = (this.incomesAmount.length);
+        //--- let sumExpenses = (this.expensesAmount.length);
+        let sumIncomes = 0;
+        let sumExpenses = 0;
+
+        for (let i = 0; i < this.incomes.length; i++) {
+            sumIncomes += incomes[i];
+        }
+
+        for (let i = 0; i < this.expenses.length; i++) {
+            sumExpenses += expenses[i];
+        }
+
+        this.sumCalc = sumIncomes - sumExpenses;
 
         // 3. skapa en function / `en sån här` som sparar en kalkylering av sumIncomes - sumExpenses
-        this.sumCalc (function() {
-            sumIncomes - sumExpenses
-        })
+        // --- this.sumCalc.push[sumIncomes - sumExpenses];
         // 4. skicka ut den här kalkyleringen via ett messageSummary
        /* this.sumCalc.forEach(function (amount) {
             messageSummary +=
@@ -158,8 +169,9 @@ const accountObject = {
         
         console.log(sumIncomes); 
         console.log(sumExpenses);
+        comsole.log(this.sumCalc);
 
-        alert(`Money left:  ${sumCalc}`);
+        alert(`Money left:  ${this.sumCalc}`);
   
         menu();
     },
@@ -202,9 +214,10 @@ const accountObject = {
     } else if (menuChoice === 5) {
         accountObject.getSummary();
     }
+    menu();
   };
   
-  menu();
+  
   
 
 console.log(accountObject.incomes);
