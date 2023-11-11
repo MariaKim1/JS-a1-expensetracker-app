@@ -34,7 +34,6 @@ const accountObject = {
     name: "Maria",
     expenses: [],
     incomes: [],
-    sumCalc: [],
      
     addIncomes: function () {
         // ((vill du bara ha tex amount för income då du behöver du inte spara som ett objekt!))
@@ -50,7 +49,6 @@ const accountObject = {
         this.incomes.push({incomeType, incomeAmount});
         // [2000, 10000, ]
   
-        console.log(this.incomes);
         // 5. kalla på menyn
         menu();
 
@@ -156,13 +154,18 @@ const accountObject = {
         let sumIncomes = 0;
         let sumExpenses = 0;
 
-        for (let i = 0; i < this.incomes.length; i++) {
-            sumIncomes += this.incomes[i];
+        for (let i = 0; i < this.incomeAmount; i++) {
+            sumIncomes += this.incomesAmount[i];
         }
 
-        for (let i = 0; i < this.expenses.length; i++) {
-            sumExpenses += this.expenses[i];
+        for (let i = 0; i < this.expenseAmount; i++) {
+            sumExpenses += this.expenseAmount[i];
         }
+        //I cannot get this right...what does the i stand for?? - look up!
+
+        /*for (let i = 0; i < this.expenses.length; i++) {
+            sumExpenses += this.expenses[i];
+        }*/
         // eller behöver jag specificera this.expenseAmount??
         // 3. skapa en function? / `en sån här` som sparar en kalkylering av sumIncomes - sumExpenses
         // --- this.sumCalc.push[sumIncomes - sumExpenses];
@@ -170,7 +173,6 @@ const accountObject = {
         let messageSummary = `The total amount left is: ${sumCalc}kr`;
 
         // 4. skicka ut den här kalkyleringen via ett messageSummary
-        console.log(messageSummary);
         alert(messageSummary);
   
         menu();
@@ -213,13 +215,10 @@ function menu() {
     } else if (menuChoice === 5) {
         accountObject.getSummary();
     }
-
-    menu();
 };
   
   
-menu()
-console.log(accountObject.incomes);
+menu();
 
 
 
