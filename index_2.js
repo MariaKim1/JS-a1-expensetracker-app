@@ -53,27 +53,37 @@ const accountObject = {
         console.log(this.incomes);
         // 5. kalla på menyn
         menu();
-        return incomeType, incomeAmount;
-      },
+
+        /*------------------------------------------------
+        // ===== INPUT VALIDATION - inspo? ======
+            if (name.value === "" || Number(amount.value) === 0) 
+                return alert("Incorrect Input"); 
+            if (Number(amount.value) <= 0)  
+                return alert( 
+                    "Incorrect amount! can't add negative"
+                ); 
+        --------------------------------------------------*/
+        return this.incomes;
+    },
 
 
     addExpenses: function () {
-      // 1. först vill du ta emot vilken typ av expense och spara inputen någonstans
-      const expenseType = prompt("What type of expense?");
-      // 2. sen vill du ta emot summan för expense och spara inputen
-      const expenseAmount = parseFloat(prompt("Please add amount of this expense:"));
-      // 3. du vill spara expense som ett objekt som har två properties.
-      // Genom att använda ({ }) så skapar du ett objekt
-      // 4. du vill lägga till expense objektet till din expenses array
-      this.expenses.push({expenseType, expenseAmount });
-      // [{"food", 1000}, {"rent", 6000}, {"gas", 1000}]
-  
-      // en lite debugger bara för att kolla att det faktiskt funka
-      console.log(this.expenses);
-  
-      // 5. kalla på menyn igen
-      menu();
-      return expenceType, expenceAmount;
+        // 1. först vill du ta emot vilken typ av expense och spara inputen någonstans
+        const expenseType = prompt("What type of expense?");
+        // 2. sen vill du ta emot summan för expense och spara inputen
+        const expenseAmount = parseFloat(prompt("Please add amount of this expense:"));
+        // 3. du vill spara expense som ett objekt som har två properties.
+        // Genom att använda ({ }) så skapar du ett objekt
+        // 4. du vill lägga till expense objektet till din expenses array
+        this.expenses.push({expenseType, expenseAmount });
+        // [{"food", 1000}, {"rent", 6000}, {"gas", 1000}]
+    
+        // en lite debugger bara för att kolla att det faktiskt funka
+        console.log(this.expenses);
+    
+        // 5. kalla på menyn igen
+        menu();
+        return this.expenses;
     },
 
 
@@ -91,49 +101,51 @@ const accountObject = {
         alert(messageIncomes);
     
         menu();
+        return messageIncomes;
     },
 
     listAllExpenses: function () {
-      // *** Hur får jag till en alert som visar en lista på alla loggade/sparade expenses? 
-      // Jag behöver kopla min alert till de sparade expenses (de objekt) som finns i min expenses array.
-      // Jag behöver skapa en lista av dessa som ska visas i min alert. 
-      // ** Loopa igenom expenses-arrayen mha en funktion i en forEach-funktion för att skapa en lista att visa i en alert
-      // 1. skapa en variabel (message) som kan hålla en string - dvs. presentera listan av min array      
-      let messageExpenses = "";
-      // 2. skapa en funktion i listAllExpenses-funktionen för att "hämta och presentera/lista" de values som blivit sparade i min expenses-array
-      // 3. döp parametern (expense) till nåt som representerar en av det du har i din expenses array
-      // 4. Använda min list-variabel (message) för att skapa funktionen som ska lista ett expense-objekt.  
-      // underförstått så vet JS att expense är ett objekt den vet för att expenses är en array med objekt och vi behöver då inte använda {}
-      this.expenses.forEach(function (expense) {
-      // här börjar loopen
-      // 5. för varje expense i expenses arrayen vill vi lista innehållet, alltså typen och summan
-        messageExpenses +=
-          "EXPENSE: " +
-          expense.expenseType +
-          "   AMOUNT: " +
-          expense.expenseAmount +
-          "\n";
-        //alert()
-        // kan inte ha alert inuti loopen för då får vi flera alerts på rad
-      });
+        // *** Hur får jag till en alert som visar en lista på alla loggade/sparade expenses? 
+        // Jag behöver kopla min alert till de sparade expenses (de objekt) som finns i min expenses array.
+        // Jag behöver skapa en lista av dessa som ska visas i min alert. 
+        // ** Loopa igenom expenses-arrayen mha en funktion i en forEach-funktion för att skapa en lista att visa i en alert
+        // 1. skapa en variabel (message) som kan hålla en string - dvs. presentera listan av min array      
+        let messageExpenses = "";
+        // 2. skapa en funktion i listAllExpenses-funktionen för att "hämta och presentera/lista" de values som blivit sparade i min expenses-array
+        // 3. döp parametern (expense) till nåt som representerar en av det du har i din expenses array
+        // 4. Använda min list-variabel (message) för att skapa funktionen som ska lista ett expense-objekt.  
+        // underförstått så vet JS att expense är ett objekt den vet för att expenses är en array med objekt och vi behöver då inte använda {}
+        this.expenses.forEach(function (expense) {
+        // här börjar loopen
+        // 5. för varje expense i expenses arrayen vill vi lista innehållet, alltså typen och summan
+            messageExpenses +=
+            "EXPENSE: " +
+            expense.expenseType +
+            "   AMOUNT: " +
+            expense.expenseAmount +
+            "\n";
+            //alert()
+            // kan inte ha alert inuti loopen för då får vi flera alerts på rad
+        });
 
-      // 6. vi vill visa det här i en alert
-      alert(messageExpenses);
-  
-      // 7. tillbaka till menyn
-      menu();
-      //alert(this.expenses);
-      // I need to be able to store NEW VALUES that the user put into the prompt.
-      // Could I do that by adding expenses (what and how much) to two separet arrays and then for-loop them into a two column list??
+        // 6. vi vill visa det här i en alert
+        alert(messageExpenses);
+    
+        // 7. tillbaka till menyn
+        menu();
+        //alert(this.expenses);
+        // I need to be able to store NEW VALUES that the user put into the prompt.
+        // Could I do that by adding expenses (what and how much) to two separet arrays and then for-loop them into a two column list??
+        return messageExpenses;
     },
 
-// ======= KIKA HÄR!!! ========= 
-// HUR RÄKNAR JAG IHOP?
+        // ======= KIKA HÄR!!! ========= 
+        // HUR RÄKNAR JAG IHOP?
     getSummary: function () {
-      // träna på att skriva en liten plan på vilka steg du tror att du behöver göra i funktionen
-      // I getSummary vill jag göra en kalkylering/addering: getSummary = Alla incomeAmount - alla expensesAmout
-      // Hur adderar jag?
-      // 1. skapa en message variabel som kan hålla funktionen som skapar listan (dvs. hämtar alla amount values och adderar dem)
+        // träna på att skriva en liten plan på vilka steg du tror att du behöver göra i funktionen
+        // I getSummary vill jag göra en kalkylering/addering: getSummary = Alla incomeAmount - alla expensesAmout
+        // Hur adderar jag?
+        // 1. skapa en message variabel som kan hålla funktionen som skapar listan (dvs. hämtar alla amount values och adderar dem)
         // let messageSummary = "";
         
         // 1. skapa en variabel som adderar alla incomes (sumIncomes) 
@@ -145,35 +157,24 @@ const accountObject = {
         let sumExpenses = 0;
 
         for (let i = 0; i < this.incomes.length; i++) {
-            sumIncomes += incomes[i];
+            sumIncomes += this.incomes[i];
         }
 
         for (let i = 0; i < this.expenses.length; i++) {
-            sumExpenses += expenses[i];
+            sumExpenses += this.expenses[i];
         }
-
-        this.sumCalc = sumIncomes - sumExpenses;
-
-        // 3. skapa en function / `en sån här` som sparar en kalkylering av sumIncomes - sumExpenses
+        // eller behöver jag specificera this.expenseAmount??
+        // 3. skapa en function? / `en sån här` som sparar en kalkylering av sumIncomes - sumExpenses
         // --- this.sumCalc.push[sumIncomes - sumExpenses];
-        // 4. skicka ut den här kalkyleringen via ett messageSummary
-       /* this.sumCalc.forEach(function (amount) {
-            messageSummary +=
-                "Incomes: " + 
-                incomes.incomeType + 
-                " Amount: " +
-                incomes.incomeAmount + 
-                "\n";
-            //2. hur adderar jag?
-        }); */
-        
-        console.log(sumIncomes); 
-        console.log(sumExpenses);
-        comsole.log(this.sumCalc);
+        const sumCalc = sumIncomes - sumExpenses;
+        let messageSummary = `The total amount left is: ${sumCalc}kr`;
 
-        alert(`Money left:  ${this.sumCalc}`);
+        // 4. skicka ut den här kalkyleringen via ett messageSummary
+        console.log(messageSummary);
+        alert(messageSummary);
   
         menu();
+        return this.sumCalc;
     },
 };
   
@@ -183,13 +184,11 @@ const accountObject = {
   // ========= Function to hold if/else statements ============
   // if/else menuChoise === 1 etc.
   // prompt/alert result of manuChoice.
-  function menu() {
+function menu() {
     // parseFloat gör så att vi kan ta emot ett nummer istället för en sträng. Prompt tar by default emot allt som en sträng
-    const menuChoice = parseFloat(
-      prompt(
+    const menuChoice = parseFloat(prompt(
         "START TRACKING YOUR EXPENSES!\nPlease select a nr from the menu:\n1) Add income\n2) Add expense\n3) List of all incomes\n4) List of all expenses\n5) See summary"
-      )
-    );
+      ));
   
     if (menuChoice === 1) {
         accountObject.addIncomes();
@@ -214,12 +213,12 @@ const accountObject = {
     } else if (menuChoice === 5) {
         accountObject.getSummary();
     }
-    menu();
-  };
-  
-  
-  
 
+    menu();
+};
+  
+  
+menu()
 console.log(accountObject.incomes);
 
 
