@@ -50,7 +50,7 @@ const accountObject = {
         // [2000, 10000, ]
   
         // ===== INPUT VALIDATION ======
-
+            
         if (!isNaN(incomeAmount)) {
         // if (inte-är-ickenummer = nummer)
         // if incomeAmount är ett nummer run this code:
@@ -178,7 +178,7 @@ const accountObject = {
         // 3. använda variablerna för atat få e slutsumma (sumCalculation)
         let sumCalculation = sumIncomes - sumExpenses;
         // 4. SKapa ett meddelande som presenterar variabeln sumCalculation
-        let messageSummary = `The total amount left is: ${sumCalculation}kr`;
+        let messageSummary = `The total amount left is: ${sumCalculation}kr\nYour total income was: ${sumIncomes}kr\nYour total expenses was: ${sumExpenses}kr`;
 
         // 5. skicka ut den här kalkyleringen via ett messageSummary
         alert(messageSummary);
