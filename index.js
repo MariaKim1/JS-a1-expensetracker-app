@@ -150,7 +150,8 @@ const accountObject = {
     getSummary: function () {
         // träna på att skriva en liten plan på vilka steg du tror att du behöver göra i funktionen
         // I getSummary vill jag göra en kalkylering/addering: getSummary = Alla incomeAmount - alla expensesAmout
-        // Hur adderar jag? i en for loop
+        // Hur adderar jag? 
+        // i en for loop
         // 1. skapa en message variabel som kan hålla funktionen som skapar listan (dvs. hämtar alla amount values och adderar dem)
         // let messageSummary = "";
         
@@ -178,9 +179,10 @@ const accountObject = {
         // 3. använda variablerna för atat få e slutsumma (sumCalculation)
         let sumCalculation = sumIncomes - sumExpenses;
         // 4. SKapa ett meddelande som presenterar variabeln sumCalculation
+        // 5. Lägga till detaljer sumIncomes och sumExpenses
         let messageSummary = `The total amount left is: ${sumCalculation}kr\nYour total income was: ${sumIncomes}kr\nYour total expenses was: ${sumExpenses}kr`;
 
-        // 5. skicka ut den här kalkyleringen via ett messageSummary
+        // 6. skicka ut den här kalkyleringen via ett messageSummary
         alert(messageSummary);
   
         menu();
