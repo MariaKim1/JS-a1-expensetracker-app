@@ -56,3 +56,5 @@ alert("This is a message in an alert box!");
 // can type an input. Like this:
 const age = parseFloat(propmpt("How old are you?"));
 // whatever the user types in the input field will be stored in the variable age.
+
+
